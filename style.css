@@ -110,3 +110,52 @@ h3 {
   font-size: 20px;
   color: #333;
 }
+
+@media (max-width: 900px) {
+    .box {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .score, .timer {
+        font-size: 18px;
+    }
+
+    .restart {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .box {
+        width: 95vw;
+        height: 95vw;
+    }
+
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .score, .timer {
+        font-size: 16px;
+    }
+
+    .restart {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+}
