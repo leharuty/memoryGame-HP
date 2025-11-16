@@ -24,7 +24,10 @@
 .container::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(255, 255, 255, 0.3);
     z-index: -1;
 }
@@ -32,8 +35,8 @@
 
 h1 {
     font-size: 50px;
-    color: #3b2f1b; 
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    color: #3b2f1b;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
@@ -41,7 +44,7 @@ h3 {
     font-weight: 400;
     font-size: 30px;
     color: #5a4a22;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .score {
@@ -57,7 +60,7 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     background: #fff;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
@@ -89,27 +92,51 @@ h3 {
 }
 
 .restart {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #5a4a22;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #5a4a22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
 
 .restart:hover {
-  background-color: #7b642d;
+    background-color: #7b642d;
 }
 
 
 .timer {
-  font-size: 20px;
-  color: #333;
+    font-size: 20px;
+    color: #333;
 }
+
+
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: #5a4a22;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.music-toggle:hover {
+    background-color: #7b642d;
+    transform: scale(1.1);
+}
+
 
 @media (max-width: 900px) {
     .box {
@@ -125,7 +152,8 @@ h3 {
         font-size: 24px;
     }
 
-    .score, .timer {
+    .score,
+    .timer {
         font-size: 18px;
     }
 
@@ -150,7 +178,8 @@ h3 {
         font-size: 20px;
     }
 
-    .score, .timer {
+    .score,
+    .timer {
         font-size: 16px;
     }
 

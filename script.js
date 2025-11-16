@@ -2,10 +2,10 @@ let container = document.querySelector(".container");
 let box = document.querySelector(".box");
 let scoreCount = document.querySelector(".score");
 let restartBtn = document.querySelector(".restart");
-
-
-
+const musicToggleBtn = document.querySelector(".music-toggle");
 let timerElement = document.querySelector(".timer");
+let bestTimeElement = document.querySelector(".best-time");
+
 
 let images = [
   "./images/dambldor.jpg",  
@@ -26,6 +26,15 @@ let images = [
   "./images/severus.jpg",
 ];
 
+
+
+let colors = [];
+let opened = [];
+let score = 0;
+let canClick = false;
+
+
+
 function playSound(name) {
   const audio = new Audio(`./sound/${name}.mp3`);
   audio.volume = 0.4;
@@ -33,10 +42,40 @@ function playSound(name) {
 }
 
 
-let colors = [];
-let opened = [];
-let score = 0;
-let canClick = false;
+function startTimer() {
+  timerElement.textContent = "Time: 0s";
+  time = 0;
+  timerInterval = setInterval(() => {
+    time++;
+    timerElement.textContent = `Time: ${time}s`;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+let bestTime = localStorage.getItem("memoryBestTime") || null;
+if (bestTime) {
+  bestTimeElement.textContent = `Best Time: ${bestTime}s`;
+}
+
+const backgroundMusic = new Audio("./sound/background.mp3");
+backgroundMusic.loop = true; 
+backgroundMusic.volume = 0.2; 
+let musicPlaying = false; 
+
+musicToggleBtn.addEventListener("click", () => {
+  if (musicPlaying) {
+    backgroundMusic.pause();
+    musicPlaying = false;
+    musicToggleBtn.textContent = "🎵";
+  } else {
+    backgroundMusic.play();
+    musicPlaying = true;
+    musicToggleBtn.textContent = "🔇";
+  }
+});
 
 
 let getColor = function () {
@@ -89,6 +128,12 @@ let getColor = function () {
               playSound("win");
               alert("You won! Now you are officially a wizard...🧙‍♂️");
 
+               if (!bestTime || time < bestTime) {
+                bestTime = time; 
+                localStorage.setItem("memoryBestTime", bestTime);
+                bestTimeElement.textContent = `Best Time: ${bestTime}s`;
+            }
+
               document.querySelector(".restart").style.display = "block";
             }, 300);
           }
@@ -126,18 +171,6 @@ getColor();
 let time = 0;
 let timerInterval;
 
-function startTimer() {
-  timerElement.textContent = "Time: 0s";
-  time = 0;
-  timerInterval = setInterval(() => {
-    time++;
-    timerElement.textContent = `Time: ${time}s`;
-  }, 1000);
-}
-
-function stopTimer() {
-  clearInterval(timerInterval);
-}
 
 document.querySelector(".restart").addEventListener("click", () => {
   location.reload();
