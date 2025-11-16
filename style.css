@@ -113,8 +113,8 @@ h3 {
 
 @media (max-width: 900px) {
     .box {
-        width: 80vw;
-        height: 80vw;
+        width: 88vw;
+        height: 88vw;
     }
 
     h1 {
@@ -137,8 +137,8 @@ h3 {
 
 @media (max-width: 500px) {
     .box {
-        width: 98vw;
-        height: 98vw;
+        width: 95vw;
+        height: 95vw;
     }
 
 

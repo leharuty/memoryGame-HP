@@ -3,6 +3,8 @@ let box = document.querySelector(".box");
 let scoreCount = document.querySelector(".score");
 let restartBtn = document.querySelector(".restart");
 
+
+
 let timerElement = document.querySelector(".timer");
 
 let images = [
@@ -23,6 +25,13 @@ let images = [
   "./images/ron.jpg",
   "./images/severus.jpg",
 ];
+
+function playSound(name) {
+  const audio = new Audio(`./sound/${name}.mp3`);
+  audio.volume = 0.4;
+  audio.play();
+}
+
 
 let colors = [];
 let opened = [];
@@ -52,6 +61,8 @@ let getColor = function () {
       if (!canClick || opened.includes(div) || div.classList.contains("matched")) return;
 
       img.style.display = "block";
+      playSound("flip");
+
       opened.push(div);
 
       if (opened.length === 2) {
@@ -64,6 +75,8 @@ let getColor = function () {
         if (firstImg.getAttribute("src") === secondImg.getAttribute("src")) {
           score++;
           scoreCount.textContent = "Score: " + score;
+          playSound("match");
+
 
           first.classList.add("matched");
           second.classList.add("matched");
@@ -73,7 +86,9 @@ let getColor = function () {
 
           if (score === 8) {
             setTimeout(() => {
+              playSound("win");
               alert("You won! Now you are officially a wizard...🧙‍♂️");
+
               document.querySelector(".restart").style.display = "block";
             }, 300);
           }
