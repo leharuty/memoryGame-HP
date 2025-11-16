@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(./images/main.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+}
+
+
+h1 {
+    font-size: 50px;
+    color: #3b2f1b; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+h3 {
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 30px;
+    color: #5a4a22;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.box {
+    width: 600px;
+    height: 600px;
+    border: 2px solid #333;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.div {
+    width: calc(100% / 4);
+    height: calc(100% / 4);
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+    background-color: #1a1a40;
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 6px;
+}
+
+.div:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.restart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #5a4a22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.restart:hover {
+  background-color: #7b642d;
+}
+
+
+.timer {
+  font-size: 20px;
+  color: #333;
+}
